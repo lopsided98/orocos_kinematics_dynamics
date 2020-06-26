@@ -333,6 +333,9 @@ using namespace KDL;
 public:
     ChainFkSolverPos_recursive(const Chain& chain);
     virtual int JntToCart(const JntArray& q_in, Frame& p_out,int segmentNr=-1);
+
+private:
+    ChainFkSolverPos_recursive& operator=(const ChainFkSolverPos_recursive&);
 };
 
 class ChainFkSolverVel_recursive : ChainFkSolverVel
@@ -345,6 +348,9 @@ public:
     ChainFkSolverVel_recursive(const Chain& chain);
     virtual int JntToCart(const JntArrayVel& q_in ,FrameVel& out,int
     segmentNr=-1 );
+
+private:
+    ChainFkSolverVel_recursive& operator=(const ChainFkSolverVel_recursive&);
 };
 
 class ChainIkSolverPos {
@@ -377,6 +383,9 @@ public:
                         unsigned int maxiter=100,double eps=epsilon);
     
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
+
+private:
+    ChainIkSolverPos_NR& operator=(const ChainIkSolverPos_NR&);
 };
 
 class ChainIkSolverPos_NR_JL : ChainIkSolverPos
@@ -391,6 +400,9 @@ public:
                         unsigned int maxiter=100,double eps=epsilon);
     
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
+
+private:
+    ChainIkSolverPos_NR_JL& operator=(const ChainIkSolverPos_NR_JL&);
 };
 
 class ChainIkSolverVel_pinv : ChainIkSolverVel
@@ -403,6 +415,9 @@ public:
     ChainIkSolverVel_pinv(const Chain& chain,double eps=0.00001,int maxiter=150);
         
     virtual int CartToJnt(const JntArray& q_in, const Twist& v_in, JntArray& qdot_out);
+
+private:
+    ChainIkSolverVel_pinv& operator=(const ChainIkSolverVel_pinv&);
 };
 
 class ChainIkSolverVel_wdls : ChainIkSolverVel
@@ -487,6 +502,8 @@ public:
 
     void setLambda(const double& lambda);
 
+private:
+    ChainIkSolverVel_wdls& operator=(const ChainIkSolverVel_wdls&);
 };
 
 
@@ -500,6 +517,9 @@ public:
     ChainIkSolverPos_LMA(const Chain& chain, double eps=0.00001, int _maxiter=500, double _eps_joints=0.000000000000001);
 
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
+
+private:
+    ChainIkSolverPos_LMA& operator=(const ChainIkSolverPos_LMA&);
 };
 
 
@@ -513,6 +533,9 @@ public:
     ChainIkSolverVel_pinv_nso(const Chain& chain,double eps=0.00001,int maxiter=150, double alpha=0.25);
         
     virtual int CartToJnt(const JntArray& q_in, const Twist& v_in, JntArray& qdot_out);
+
+private:
+    ChainIkSolverVel_pinv_nso& operator=(const ChainIkSolverVel_pinv_nso&);
 };
 
 class ChainIkSolverVel_pinv_givens : ChainIkSolverVel
@@ -526,6 +549,8 @@ public:
         
     virtual int CartToJnt(const JntArray& q_in, const Twist& v_in, JntArray& qdot_out);
 
+private:
+    ChainIkSolverVel_pinv_givens& operator=(const ChainIkSolverVel_pinv_givens&);
 };
 
 
@@ -539,6 +564,9 @@ using namespace KDL;
 public:
     ChainJntToJacSolver(const Chain& chain);
     int JntToJac(const JntArray& q_in,Jacobian& jac);
+
+private:
+    ChainJntToJacSolver& operator=(const ChainJntToJacSolver&);
 };
 
 
