@@ -344,6 +344,9 @@ public:
     ChainFkSolverPos_recursive(const Chain& chain);
     virtual int JntToCart(const JntArray& q_in, Frame& p_out,int segmentNr=-1);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainFkSolverPos_recursive& operator=(const ChainFkSolverPos_recursive&);
 };
 
 class ChainFkSolverVel_recursive : ChainFkSolverVel
@@ -357,6 +360,9 @@ public:
     virtual int JntToCart(const JntArrayVel& q_in ,FrameVel& out,int
     segmentNr=-1 );
     virtual void updateInternalDataStructures();
+
+private:
+    ChainFkSolverVel_recursive& operator=(const ChainFkSolverVel_recursive&);
 };
 
 class ChainIkSolverPos : SolverI {
@@ -392,6 +398,9 @@ public:
     
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainIkSolverPos_NR& operator=(const ChainIkSolverPos_NR&);
 };
 
 class ChainIkSolverPos_NR_JL : ChainIkSolverPos
@@ -407,6 +416,9 @@ public:
     
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainIkSolverPos_NR_JL& operator=(const ChainIkSolverPos_NR_JL&);
 };
 
 class ChainIkSolverVel_pinv : ChainIkSolverVel
@@ -420,6 +432,9 @@ public:
         
     virtual int CartToJnt(const JntArray& q_in, const Twist& v_in, JntArray& qdot_out);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainIkSolverVel_pinv& operator=(const ChainIkSolverVel_pinv&);
 };
 
 class ChainIkSolverVel_wdls : ChainIkSolverVel
@@ -506,6 +521,8 @@ public:
 
     void setLambda(const double& lambda);
 
+private:
+    ChainIkSolverVel_wdls& operator=(const ChainIkSolverVel_wdls&);
 };
 
 
@@ -520,6 +537,9 @@ public:
 
     virtual int CartToJnt(const JntArray& q_init , const Frame& p_in ,JntArray& q_out);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainIkSolverPos_LMA& operator=(const ChainIkSolverPos_LMA&);
 };
 
 
@@ -546,6 +566,9 @@ public:
     const JntArray& getOptPos()const /Factory/;
 
     const double& getAlpha()const /Factory/;
+
+private:
+    ChainIkSolverVel_pinv_nso& operator=(const ChainIkSolverVel_pinv_nso&);
 };
 
 class ChainIkSolverVel_pinv_givens : ChainIkSolverVel
@@ -559,6 +582,9 @@ public:
         
     virtual int CartToJnt(const JntArray& q_in, const Twist& v_in, JntArray& qdot_out);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainIkSolverVel_pinv_givens& operator=(const ChainIkSolverVel_pinv_givens&);
 };
 
 class ChainJntToJacSolver : SolverI
@@ -571,4 +597,7 @@ public:
     ChainJntToJacSolver(const Chain& chain);
     int JntToJac(const JntArray& q_in,Jacobian& jac);
     virtual void updateInternalDataStructures();
+
+private:
+    ChainJntToJacSolver& operator=(const ChainJntToJacSolver&);
 };
